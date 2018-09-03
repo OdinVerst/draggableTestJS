@@ -1,8 +1,10 @@
 'use strict';
 
 var draggableBl = document.querySelector('.sample__draggable-bl');
+var draggableBl2 = document.querySelector('.sample__draggable-bl span');
+var draggableContain = document.querySelector('.draggable-sample__contain');
 
-draggableBl.addEventListener('mousedown', function (evt) {
+draggableBl2.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
     var startCoords = {
         x: evt.clientX,
@@ -19,10 +21,10 @@ draggableBl.addEventListener('mousedown', function (evt) {
         };
         console.log(shift);
         console.log('---');
-        console.log(startCoords);
-        if(startCoords.x < 661) {
+        console.log(draggableBl.offsetLeft);
+        if(draggableBl.offsetLeft - shift.x < (draggableContain.clientWidth-17) && draggableBl.offsetLeft - shift.x > 9) {
             draggableBl.style.left = (draggableBl.offsetLeft - shift.x) + 'px';
-            console.log(draggableBl.style.left);
+            console.log(draggableBl.offsetLeft);
         }
     };
 
