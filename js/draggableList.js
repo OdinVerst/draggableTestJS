@@ -40,22 +40,44 @@ DRAGGABLE_BLOCK.addEventListener('mousedown', function (evt) {
            startCoords = {
                x: moveEvt.clientX
            };
-
-           if(draggableBl[evt.target.dataset.indexNumber].offsetLeft - shift.x < (draggableContain.clientWidth-9) && draggableBl[evt.target.dataset.indexNumber].offsetLeft - shift.x >= 0) {
-               draggableBl[evt.target.dataset.indexNumber].style.left = (draggableBl[evt.target.dataset.indexNumber].offsetLeft - shift.x) + 'px';
-               var currentLine = draggableBl[evt.target.dataset.indexNumber].parentElement.querySelectorAll('.center__evt');
-               if(currentLine.length > 1){
-                   var curentBlock = draggableBl[evt.target.dataset.indexNumber];
-                   var curentValFilter = draggableBl[evt.target.dataset.indexNumber].offsetLeft;
-                   filterCount(curentBlock, curentValFilter);
-               }if (currentLine.length === 1) {
-                   var parenBlock = draggableBl[evt.target.dataset.indexNumber].parentElement.parentElement.parentElement;
-                   var curentVal = draggableBl[evt.target.dataset.indexNumber].offsetLeft;
-                   percentCount(parenBlock, curentVal);
+           var currentDragEL  = evt.target;
+           if(currentDragEL.parentElement.classList.contains('filter-item')){
+               if(currentDragEL.parentElement.classList.contains('filter__block-min')){
+                   if(draggableBl[evt.target.dataset.indexNumber].offsetLeft - shift.x < (draggableBl[Number(evt.target.dataset.indexNumber) + 1].offsetLeft - 9) && draggableBl[evt.target.dataset.indexNumber].offsetLeft - shift.x >= 0) {
+                       draggableBl[evt.target.dataset.indexNumber].style.left = (draggableBl[evt.target.dataset.indexNumber].offsetLeft - shift.x) + 'px';
+                   }
                }
+               if(currentDragEL.parentElement.classList.contains('filter__block-max')){
+                   if(draggableBl[evt.target.dataset.indexNumber].offsetLeft - shift.x < (draggableContain.clientWidth-9) && draggableBl[evt.target.dataset.indexNumber].offsetLeft - shift.x >= draggableBl[Number(evt.target.dataset.indexNumber) - 1].offsetLeft + 10) {
+                       draggableBl[evt.target.dataset.indexNumber].style.left = (draggableBl[evt.target.dataset.indexNumber].offsetLeft - shift.x) + 'px';
+                   }
+               }
+           }else {
+               if(draggableBl[evt.target.dataset.indexNumber].offsetLeft - shift.x < (draggableContain.clientWidth-9) && draggableBl[evt.target.dataset.indexNumber].offsetLeft - shift.x >= 0) {
+                       draggableBl[evt.target.dataset.indexNumber].style.left = (draggableBl[evt.target.dataset.indexNumber].offsetLeft - shift.x) + 'px';
+                           var parenBlock = draggableBl[evt.target.dataset.indexNumber].parentElement.parentElement.parentElement;
+                           var curentVal = draggableBl[evt.target.dataset.indexNumber].offsetLeft;
+                           percentCount(parenBlock, curentVal);
+                       }
 
+                   }
            }
-       };
+
+           // if(draggableBl[evt.target.dataset.indexNumber].offsetLeft - shift.x < (draggableContain.clientWidth-9) && draggableBl[evt.target.dataset.indexNumber].offsetLeft - shift.x >= 0) {
+           //     draggableBl[evt.target.dataset.indexNumber].style.left = (draggableBl[evt.target.dataset.indexNumber].offsetLeft - shift.x) + 'px';
+           //     var currentLine = draggableBl[evt.target.dataset.indexNumber].parentElement.querySelectorAll('.center__evt');
+           //     if(currentLine.length > 1){
+           //         var curentBlock = draggableBl[evt.target.dataset.indexNumber];
+           //         var curentValFilter = draggableBl[evt.target.dataset.indexNumber].offsetLeft;
+           //         filterCount(curentBlock, curentValFilter);
+           //     }if (currentLine.length === 1) {
+           //         var parenBlock = draggableBl[evt.target.dataset.indexNumber].parentElement.parentElement.parentElement;
+           //         var curentVal = draggableBl[evt.target.dataset.indexNumber].offsetLeft;
+           //         percentCount(parenBlock, curentVal);
+           //     }
+           //
+           // }
+       // };
 
        var onMouseUp = function (upEvt) {
            upEvt.preventDefault();
