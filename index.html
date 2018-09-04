@@ -26,7 +26,7 @@
             <div class="draggable-sample">
                 <div class="draggable-sample__contain">
                     <div class="filter__input-block">
-                        <input type="number" class="filter__input" id="filter-max" value="1">
+                        <input type="number" class="filter__input" id="filter-max" value="0">
                         <input type="number" class="filter__input" id="filter-min" value="100">
                     </div>
                     <div class="sample__line">
@@ -36,9 +36,14 @@
                     </div>
                     <div class="formContain">
                         <form>
-                            <input type="number">
-                            <input type="number">
-                            <button>Сменить значения</button>
+                            <label>Минимум
+                                <input class="setval__min" type="number" value="0">
+                            </label>
+                            <label>Максимум
+                                <input class="setval__max" type="number" value="100">
+                            </label>
+                            <p class="showError"></p>
+                            <button class="setval__btn">Сменить значения</button>
                         </form>
                     </div>
                 </div>
@@ -57,4 +62,5 @@
 </body>
 <script src="js/draggableList.js"></script>
 <script src="js/dataSet.js"></script>
+<script src="js/formMax.js"></script>
 </html>
