@@ -10,9 +10,30 @@
     <div class="draggable-bl draggable-line">
         <h2 class="draggable-bl__h1">Draggable line</h2>
         <div class="draggable-sample">
-            <div class="draggable-sample__contain">
-                <div class="sample__line">
-                    <div class="sample__draggable-bl"><span></span></div>
+            <div class="second__sample">
+                <div class="draggable-sample__contain">
+                    <div class="sample__line">
+                        <div class="sample__draggable-bl"><span class="center__evt"></span></div>
+                    </div>
+                </div>
+                <div class="sub-contain">
+                    <h3 class="percent__title">Total:</h3>
+                    <p class="percent__line">0</p>
+                </div>
+            </div>
+            <hr>
+            <h2 class="draggable-bl__h1">Draggable filter</h2>
+            <div class="draggable-sample">
+                <div class="draggable-sample__contain">
+                    <div class="filter__input-block">
+                        <input type="number" class="filter__input" id="filter-max" value="1">
+                        <input type="number" class="filter__input" id="filter-min" value="100">
+                    </div>
+                    <div class="sample__line">
+                        <div class="sample__draggable-bl filter__block-min"><span class="center__evt"></span></div>
+                        <div class="sample__draggable-bl sample__draggable-bl-second filter__block-max"><span class="center__evt"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -27,5 +48,5 @@
     </div>
 </div>
 </body>
-<script src="js/main.js"></script>
+<script src="js/draggableList.js"></script>
 </html>
