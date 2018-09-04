@@ -6,9 +6,6 @@ var centerDragg = document.querySelectorAll('.center__evt');
 var draggableContain = document.querySelector('.sample__line');
 var filterInput = document.querySelectorAll('.filter__input');
 
-for (var i = 0; i < centerDragg.length; i++) {
-    centerDragg[i].dataset.indexNumber = i;
-}
 
 var percentCount = function (elem, curVal) {
     var numPercent = elem.querySelector('.percent__line');
